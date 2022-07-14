@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fasttom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fasttom
+  template:
+    metadata:
+      labels:
+        app: fasttom
+    spec:
+      containers:
+      - image: okteto.dev/fasttom:latest
+        name: fasttom
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "fa7c2f79-ae32-43cc-8af1-310a2080dd1d"
+        - name: Vless_Path
+          value: "/vl123"
+        - name: Vmess_UUID
+          value: "fa7c2f79-ae32-43cc-8af1-310a2080dd1d"
+        - name: Vmess_Path
+          value: "/vm888"
+        - name: Share_Path
+          value: "/v2link"
